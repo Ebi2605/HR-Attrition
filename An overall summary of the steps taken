@@ -23,7 +23,9 @@ Department: Null values are filled proportionately among the existing values, wi
 Gender: Null values are filled proportionately among Male and Female categories.
 Designation: Null values are filled proportionately among different designations.
 'Involvement' and 'WorkLifeBalance' are ordinal variables and are encoded accordingly.
+
 Feature Scaling and Multicollinearity Check:
+
 Columns 'Attrition', 'Designation_Executive', 'EducationField_Statistics', and 'Department_Sales' are dropped from the test data because of high VIF, indicating multicollinearity between these variables.
 Feature scaling is performed on the numeric variables using the same scaler fitted on the training data before model building
 
