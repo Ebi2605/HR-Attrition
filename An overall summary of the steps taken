@@ -1,1 +1,72 @@
+Data Preparation and Preprocessing:
+
+Initially, the dataset consists of 5180 employees, and the objective is to predict attrition rates for 2630 employees.
+'Testdata' values are inserted into the Attrition column for the Test_Dataset.
+Test and Train data are merged for analysis.
+The data is categorized into Numeric and Categorical variables for preprocessing.
+
+Numeric Variables:
+
+Age: Null values are filled with the average of Mean and Median rounded off to 37.
+Distance from home to work: Null values are filled with Mean + Median / 2, rounded off to 10.
+Hours in a week: Null values are filled with the Median.
+NumCompaniesWorked: Null values are filled with the Median.
+SalaryHikelastYear: Null values are filled with the Median.
+WorkExperience: Null values are filled with the average of Mean and Median rounded off to 11.
+LastPromotion: Null values are filled with the Mean rounded off to 2.
+Current Profile: Null values are filled with 4, rounded off after the average of Mean and Median.
+MonthlyIncome: Null values are filled with the average of Mean and Median rounded off to 20983.
+
+Categorical Variables:
+
+Department: Null values are filled proportionately among the existing values, with 2 extra values added to Analytics.
+Gender: Null values are filled proportionately among Male and Female categories.
+Designation: Null values are filled proportionately among different designations.
+'Involvement' and 'WorkLifeBalance' are ordinal variables and are encoded accordingly.
+Feature Scaling and Multicollinearity Check:
+Columns 'Attrition', 'Designation_Executive', 'EducationField_Statistics', and 'Department_Sales' are dropped from the test data because of high VIF, indicating multicollinearity between these variables.
+Feature scaling is performed on the numeric variables using the same scaler fitted on the training data before model building
+
+Encoding:
+
+The least frequent value in each category is considered for dropping.
+For 'MaritalStatus', 'Divorsed' is changed to 'Divorced' and 'M' is added to 'Married'.
+
+Model Building and Evaluation:
+
+Training and validation data are split into features and target, with a test size of 0.2, a random state of 89, and stratification based on the target.
+Twelve models are constructed, including Logistic Regression, AdaBoost, Gradient Boosting Algorithm, XGBoost, Bagging Classifier, Random Forest, K Nearest Neighbors, Support Vector Machine, Naive Bayes Theorem, Decision Tree, Voting Classifier, and Stacking Classifier.
+Model evaluation includes confusion matrices, classification reports, and accuracy scores.
+
+Results:
+
+Logistic Regression: Accuracy - 82.05%
+AdaBoost: Accuracy - 82.14%
+Gradient Boosting Algorithm: Accuracy - 88.80%
+XGBoost: Accuracy - 99.23%
+Bagging Classifier: Accuracy - 98.17%
+Random Forest: Accuracy - 98.84%
+K Nearest Neighbors: Accuracy - 94.59%
+Support Vector Machine: Accuracy - 92.28%
+Naive Bayes Theorem: Accuracy - 79.15%
+Decision Tree: Accuracy - 95.85%
+Voting Classifier: Accuracy - 94.79%
+Stacking Classifier: Accuracy - 99.32%
+
+Test Data Summary:
+
+Columns 'Attrition', 'Designation_Executive', 'EducationField_Statistics', and 'Department_Sales' are dropped from the test data.
+Predictions are made using each loaded model on the scaled test data.
+Predictions from each model are stored in a DataFrame.
+Predictions are exported to an Excel file named 'model_predictions_final.xlsx'.
+
+Conclusion:
+
+Overall, the project involves extensive data preprocessing, encoding, and model building to predict attrition rates, with impressive accuracies achieved by various machine learning algorithms.
+According to the Logistic Regression model, it is predicted that out of the 2630 employees analyzed, approximately 544 employees are expected to experience attrition.
+
+
+The findings have been effectively represented in a Power BI format.
+
+
 
